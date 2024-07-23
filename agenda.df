@@ -1,0 +1,74 @@
+ADD TABLE "agenda"
+  AREA "Schema Area"
+  DUMP-NAME "agenda"
+
+ADD FIELD "id" OF "agenda" AS integer 
+  FORMAT ">>>>>>>9"
+  INITIAL "0"
+  LABEL "ID"
+  POSITION 2
+  MAX-WIDTH 4
+  COLUMN-LABEL "ID"
+  ORDER 10
+
+ADD FIELD "nome" OF "agenda" AS character 
+  FORMAT "x(80)"
+  INITIAL ""
+  LABEL "Nome"
+  POSITION 3
+  MAX-WIDTH 160
+  COLUMN-LABEL "Nome"
+  ORDER 20
+
+ADD FIELD "telefone" OF "agenda" AS character 
+  DESCRIPTION "Telefone"
+  FORMAT "x(12)"
+  INITIAL ""
+  LABEL "Telefone"
+  POSITION 4
+  MAX-WIDTH 24
+  COLUMN-LABEL "Telefone"
+  ORDER 30
+
+ADD FIELD "dtCriacao" OF "agenda" AS date 
+  DESCRIPTION "Data da Cria‡Æo do Registro"
+  FORMAT "99/99/9999"
+  INITIAL ?
+  LABEL "Data"
+  POSITION 5
+  MAX-WIDTH 4
+  COLUMN-LABEL "Data"
+  ORDER 40
+
+ADD FIELD "situacao" OF "agenda" AS integer 
+  DESCRIPTION "Situa‡Æo"
+  FORMAT "9"
+  INITIAL "0"
+  LABEL "Situa‡Æo"
+  POSITION 6
+  MAX-WIDTH 4
+  COLUMN-LABEL "Situa‡Æo"
+  HELP "1 - Pendente,  2 - Suspenso, 3 - Liberado"
+  ORDER 50
+
+ADD FIELD "ativo" OF "agenda" AS logical 
+  DESCRIPTION "Registro Ativo"
+  FORMAT "yes/no"
+  INITIAL "no"
+  LABEL "Ativo"
+  POSITION 7
+  MAX-WIDTH 1
+  COLUMN-LABEL "Ativo"
+  ORDER 60
+
+ADD INDEX "idxPk" ON "agenda" 
+  AREA "Schema Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "id" ASCENDING 
+
+.
+PSC
+cpstream=ibm850
+.
+0000001332
