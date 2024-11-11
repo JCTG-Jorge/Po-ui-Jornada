@@ -1,0 +1,79 @@
+<po-page-default
+    p-title="Relatório de Class Fiscal x Item" >
+
+    <po-tabs>
+      <po-tab [p-active]="true" p-label="Seleção">
+        <form #formTravel="ngForm">
+
+
+          <div class="po-row">
+            <po-input class="po-offset-lg-2 po-offset-xl-2 po-xl-3 po-lg-3 po-md-3 po-sm-12"
+            name="classFiscalIni"
+            [(ngModel)]="classFiscalIni"
+            p-label="Class Fiscal Inicial"
+            p-mask="9999.99.99"
+            p-required>
+            </po-input>
+
+            <po-input class="po-offset-lg-2 po-offset-xl-2 po-xl-3 po-lg-3 po-md-3 po-sm-12"
+            name="classFiscalFim"
+            [(ngModel)]="classFiscalFim"
+            p-label="Class Fiscal Final"
+            p-mask="9999.99.99"
+            p-required>
+            </po-input>
+          </div>
+
+          <div class="po-row">
+            <po-input class="po-offset-lg-2 po-offset-xl-2 po-xl-3 po-lg-3 po-md-3 po-sm-12"
+             name="itCodigoIni" [(ngModel)]="itCodigoIni" p-label="Item Inicial" p-required>
+            </po-input>
+            <po-input class="po-offset-lg-2 po-offset-xl-2 po-xl-3 po-lg-3 po-md-3 po-sm-12"
+             name="itCodigoFim" [(ngModel)]="itCodigoFim" p-label="Destination" p-required>
+            </po-input>
+          </div>
+
+
+
+        </form>
+
+      </po-tab>
+      <po-tab p-label="Impressão">
+
+        <div class="po-row">
+          <po-radio-group
+            class="po-lg-12"
+            name="transportation"
+            [(ngModel)]="tipoExceucao"
+            p-label="Transportation"
+
+            [p-options]="execucaoOptions"
+          >
+          </po-radio-group>
+        </div>
+
+      </po-tab>
+    </po-tabs>
+
+    <po-container>
+      <div class="po-row">
+        <po-button
+        class="po-sm-12  po-md-2 po-lg-1 po-lx-1"
+        p-kind="primary"
+
+        p-label="Executar"
+
+        (p-click)="onExecutar()">
+    </po-button>
+
+      </div>
+
+    </po-container>
+
+
+
+</po-page-default>
+
+<div>
+  <po-loading-overlay [hidden]="isHideLoading"></po-loading-overlay>
+</div>
